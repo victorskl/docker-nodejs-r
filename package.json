@@ -1,0 +1,15 @@
+{
+  "name": "docker-nodejs-r",
+  "version": "1.0.0",
+  "description": "NodeJS <> R inside the same Docker container",
+  "main": "example.js",
+  "scripts": {
+    "test": "grunt test",
+    "start": "node server.js"
+  },
+  "author": "Victor",
+  "license": "ISC",
+  "dependencies": {
+    "r-script": "0.0.3"
+  }
+}

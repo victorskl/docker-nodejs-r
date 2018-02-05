@@ -1,10 +1,15 @@
 # docker-nodejs-r
 
-Deploy NodeJS and R inside the same Docker container. NodeJS app will call the R scripts; and thereof communicating each other on stdout/stderr.
+Deploy NodeJS and R inside the same Docker container. NodeJS app will call the R scripts, and thereof communicating each other in local process stdout/stderr.
 
 ### On local development:
 
+Consider you have installed R and NodeJS in prior. Go ahead, [download and install R](https://cran.ms.unimelb.edu.au) for your local development platform. And `brew install node`.
+
 ```
+git clone https://github.com/victorskl/docker-nodejs-r.git
+cd docker-nodejs-r
+
 bash clean.sh
 npm install
 node spawn.js
@@ -74,3 +79,9 @@ The downside is the docker image could be potentially huge as it requires instal
 docker images dev_tesk
 ```
 
+And delete the image and container if desire.
+
+```
+docker rm tesk
+docker rmi dev_tesk
+```

@@ -10,7 +10,7 @@
 # It can also be the other way round, i.e. base from r-base then inject NodeJS.
 #
 
-FROM node:carbon
+FROM node:8.6.0
 
 # --
 
@@ -42,6 +42,10 @@ COPY ./attitude.json /app/
 COPY ./*.R /app/
 COPY ./*.js /app/
 COPY ./package*.json /app/
+
+# Needed for TinyTeX
+#RUN echo "export PATH="$HOME/bin:$PATH"" >> $HOME/.profile
+ENV PATH="/root/bin:${PATH}"
 
 WORKDIR /app
 

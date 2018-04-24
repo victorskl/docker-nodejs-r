@@ -51,6 +51,15 @@ WORKDIR /app
 
 RUN Rscript dependencies.R
 
+# If we also want it for node user
+USER node
+RUN Rscript -e "tinytex::install_tinytex()"
+USER root
+
+COPY latex_deps.sh /root/bin
+COPY dependencies.Latex /root/
+RUN bash /root/bin/latex_deps.sh /root/dependencies.Latex
+
 RUN npm install
 
 EXPOSE 8888

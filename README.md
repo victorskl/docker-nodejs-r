@@ -1,10 +1,10 @@
 # docker-nodejs-r
 
-Deploy NodeJS and R inside the same Docker container. NodeJS app will call the R scripts, and thereof communicating each other in local process stdout/stderr.
+Deploy NodeJS and R inside the same Docker container. NodeJS app will call the R script and, thereof communicating each other in local process stdout/stderr. Additionally, using TinyTeX(LaTeX), Pandoc and Rmarkdown to generate an analysis report PDF through R script. Oh Yeah!
 
 ### On local development:
 
-Consider you have installed R and NodeJS in prior. Go ahead, [download and install R](https://cran.ms.unimelb.edu.au) for your local development platform. And `brew install node`.
+Consider you have installed R and NodeJS in prior. Go ahead, [download and install R](https://cran.ms.unimelb.edu.au) for your local development platform. And `brew install node` or [`nvm install node`](https://github.com/creationix/nvm).
 
 ```
 git clone https://github.com/victorskl/docker-nodejs-r.git
@@ -53,21 +53,30 @@ ls -l
 which Rscript
 Rscript hello.R victor
 
+nvm ls
+
 which node
-node --version
+node -v
+npm -v
 
 node spawn.js
 
 node example.js
 ```
 
-And hit the [http://localhost:8888](http://localhost:8888). And this will call the `spawn` process in `server.js` and print the `hello.R` output into `console.log(..)`.
+To generate [PDF report](report.pdf) using TinyTeX through Pandoc and Rmarkdown
+
+```
+Rscript report_gen.R
+```
+
+And hit the [http://localhost:8888](http://localhost:8888). This will call the `spawn` process in `server.js` and print the `hello.R` output into `console.log(..)`.
 
 ```
 open -a Safari http://localhost:8888
 ```
 
-Then to stop the container:
+To stop the container:
 
 ```
 docker stop tesk

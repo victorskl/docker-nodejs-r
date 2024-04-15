@@ -1,2 +1,6 @@
 Dockerfile
 out.Rout
+node_modules/
+.gitignore
+.git/
+.idea/

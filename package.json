@@ -10,6 +10,6 @@
   "author": "Victor",
   "license": "ISC",
   "dependencies": {
-    "r-script": "0.0.3"
+    "r-script": "0.0.4"
   }
 }

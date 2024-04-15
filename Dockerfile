@@ -1,15 +1,16 @@
-FROM r-base:3.5.1
+FROM r-base:4.3.3
 
 #--
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    curl gfortran pandoc libssl-dev libgit2-dev libxml2-dev git \
+    pandoc git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-RUN /bin/bash -c 'source $HOME/.bashrc; nvm install 8.6.0'
+# nvm ls-remote --lts
+RUN /bin/bash -c 'source $HOME/.bashrc; nvm install v20.12.2'
 
 #--
 
